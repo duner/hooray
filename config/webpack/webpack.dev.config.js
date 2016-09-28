@@ -5,7 +5,7 @@ const fs = require('fs');
 
 module.exports = require('./webpack.base.config')({
     entry: [
-        'webpack/hot/dev-server',
+        'react-hot-loader/patch',
         'webpack-hot-middleware/client',
         path.join(process.cwd(), 'app/index.jsx'),
     ],
@@ -14,6 +14,7 @@ module.exports = require('./webpack.base.config')({
         chunkFilename: '[name].chunk.js',
     },
     plugins: [
+        new webpack.optimize.OccurenceOrderPlugin(),
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoErrorsPlugin(),
         new HtmlWebpackPlugin({
@@ -22,7 +23,7 @@ module.exports = require('./webpack.base.config')({
         }),
     ],
     devtool: 'cheap-module-eval-source-map',
-    quiet: false,
+    quiet: true,
 });
 
 function templateContent() {

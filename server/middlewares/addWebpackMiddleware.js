@@ -9,15 +9,15 @@ const addDevMiddlewares = (app, webpackConfig) => {
     const compiler = webpack(webpackConfig);
     const middleware = webpackDevMiddleware(compiler, {
         publicPath: webpackConfig.output.publicPath,
-        hot: true,
-        serverSideRender: true
+        noInfo: true,
+        silent: true,
+        stats: 'errors-only',
     });
-
-    const fs = middleware.fileSystem;
 
     app.use(middleware);
     app.use(webpackHotMiddleware(compiler));
 
+    const fs = middleware.fileSystem;
     app.get('*', (req, res) => {
         fs.readFile(path.join(compiler.outputPath, 'index.html'), (err, file) => {
             if (err) {

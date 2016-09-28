@@ -14,9 +14,6 @@ module.exports = (options) => ({
                 test: /\.(js|jsx)?$/,
                 loader: 'babel',
                 exclude: /node_modules/,
-                query: {
-                    "presets": ["react", "es2015", "react-hmre"],
-                },
             },
             {
                   test: /\.html$/,
@@ -43,5 +40,5 @@ module.exports = (options) => ({
         ]
     },
     target: 'web',
-    stats: true,
+    progress: true,
 });

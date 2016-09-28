@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
 
-import applicationReducer from './containers/Application/reducer';
+import homepageReducer from './containers/HomePage/reducer';
 
-export default combineReducers({ applicationReducer });
+export default combineReducers({ homepageReducer });

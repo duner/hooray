@@ -4,7 +4,7 @@ require('./../../styles/_base.scss');
 
 const Application = (props) => (
   <div>
-    <h1>Hello world</h1>
+    <div>{props.children}</div>
   </div>
 );
 

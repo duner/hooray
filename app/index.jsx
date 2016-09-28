@@ -1,14 +1,20 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { Provider } from 'react-redux';
-import { Router, hashHistory } from 'react-router';
+import { AppContainer } from 'react-hot-loader';
 
-import routes from './routes.jsx';
-import applicationStore from './store';
+import Root from './containers/Root';
 
 render(
-    <Provider store={applicationStore}>
-      <Router history={hashHistory} routes={routes} />
-    </Provider>,
-    document.querySelector('#app')
+  <AppContainer><Root /></AppContainer>,
+  document.getElementById('root')
 );
+
+if (module.hot) {
+  module.hot.accept('./containers/Root', () => {
+    const NextRoot = require('./containers/Root').default;
+    render(
+        <AppContainer><NextRoot /></AppContainer>,
+        document.getElementById('root')
+    );
+  });
+}
