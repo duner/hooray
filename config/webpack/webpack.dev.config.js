@@ -22,6 +22,9 @@ module.exports = require('./webpack.base.config')({
             templateContent: templateContent(),
         }),
     ],
+    devServer: {
+        hot: true,
+    },
     devtool: 'cheap-module-eval-source-map',
     quiet: true,
 });
