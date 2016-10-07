@@ -1,10 +1,10 @@
 import React from 'react';
 
-require('./../../styles/_base.scss');
+// require('./../../styles/_base.scss');
 
 const Application = (props) => (
   <div>
-    <div>{props.children}</div>
+    <div className="app-root">{props.children}</div>
   </div>
 );
 

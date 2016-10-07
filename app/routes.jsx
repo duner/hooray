@@ -1,12 +1,12 @@
 import React from 'react';
-import { Route, IndexRedirect } from 'react-router';
+import { Route, IndexRoute } from 'react-router';
 
 import Application from './containers/Application';
-import HomePage from './containers/HomePage';
+import PostsPage from './containers/PostsPage';
 
 export default (
     <Route path="/" component={Application}>
-        <IndexRedirect to="/home" />
-        <Route path="home" component={HomePage} />
+        <IndexRoute component={PostsPage} />
+        <Route path="posts" component={PostsPage} />
     </Route>
 );
